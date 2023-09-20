@@ -8,12 +8,16 @@ driver:
 platforms:
   - name: ubuntu_focal
     image: ubuntu:focal
+    privileged: true
   - name: ubuntu_jammy
     image: ubuntu:jammy
+    privileged: true
   - name: debian_bullseye
     image: debian:bullseye
+    privileged: true
   - name: debian_bookworm
     image: debian:bookworm
+    privileged: true
 provisioner:
   name: ansible
   inventory:
