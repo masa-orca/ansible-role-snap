@@ -21,4 +21,5 @@
   ansible.builtin.include_tasks:
     file: configure.yml
   loop: "{{ snapd_confs }}"
-  loop_var: snapd_conf
+  loop_control:
+    loop_var: snapd_conf
