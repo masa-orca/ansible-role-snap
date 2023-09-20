@@ -21,7 +21,7 @@
   become: yes
   ansible.builtin.systemd:
     state: started
-    name: snapd
+    name: snapd.service
 
 - name: Configure snapd
   ansible.builtin.include_tasks:
