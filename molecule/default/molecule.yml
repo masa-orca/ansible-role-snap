@@ -1,25 +1,6 @@
 ---
 dependency:
   name: galaxy
-driver:
-  name: docker
-platforms:
-  - name: ubuntu_focal
-    image: ubuntu:focal
-    privileged: true
-    command: /sbin/init
-  - name: ubuntu_jammy
-    image: ubuntu:jammy
-    privileged: true
-    command: /sbin/init
-  - name: debian_bullseye
-    image: debian:bullseye
-    privileged: true
-    command: /sbin/init
-  - name: debian_bookworm
-    image: debian:bookworm
-    privileged: true
-    command: /sbin/init
 provisioner:
   name: ansible
   inventory:
