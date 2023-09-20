@@ -1,0 +1,11 @@
+---
+- name: Run apt update
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Install snapd
+  become: yes
+  ansible.builtin.apt:
+    name: snapd
+    state: latest

@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Include masa_orca.snapd"
+      ansible.builtin.include_role:
+        name: "masa_orca.snapd"

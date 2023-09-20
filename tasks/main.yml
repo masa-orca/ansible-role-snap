@@ -1,0 +1,24 @@
+---
+- name: Collect facts
+  become: true
+  ansible.builtin.setup:
+    filter:
+      - distribution
+
+- name: Install git on Debian
+  ansible.builtin.include_tasks:
+    file: Debian.yml
+  when:
+    - ansible_facts.distribution == "Debian"
+
+- name: Install git on Ubuntu
+  ansible.builtin.include_tasks:
+    file: Ubuntu.yml
+  when:
+    - ansible_facts.distribution == "Ubuntu"
+
+- name: Configure snapd
+  ansible.builtin.include_tasks:
+    file: configure.yml
+  loop: "{{ snapd_confs }}"
+  loop_var: snapd_conf

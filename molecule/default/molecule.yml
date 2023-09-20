@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+  options:
+    requirements-file: collections.yml
+driver:
+  name: docker
+platforms:
+  - name: ubuntu_focal
+    image: ubuntu:focal
+  - name: ubuntu_jammy
+    image: ubuntu:jammy
+  - name: debian_bullseye
+    image: debian:bullseye
+  - name: debian_bookworm
+    image: debian:bookworm
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        snapd_confs:
+          snap: system
+          key: proxy.http
+          value: hogehoge
+verifier:
+  name: ansible
+

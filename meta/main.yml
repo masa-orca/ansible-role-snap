@@ -1,0 +1,27 @@
+---
+galaxy_info:
+    role_name: snapd
+    namespace: masa_orca
+    author: masa-orca
+    description: This role will install snapd.
+    company: home
+    license: MIT License
+    min_ansible_version: 2.13.0
+    version: "1.0.0"
+    readme: "README.md"
+    platforms:
+        - name: Debian
+          versions:
+              - buster
+              - bullseye
+        - name: Ubuntu
+          versions:
+              - all
+    galaxy_tags:
+        - shell
+        - fish
+    repository: https://github.com/masa-orca/ansible-role-snapd.git
+    homepage: https://github.com/masa-orca/ansible-role-snapd
+    issues: https://github.com/masa-orca/ansible-role-snapd/issues
+
+dependencies: []

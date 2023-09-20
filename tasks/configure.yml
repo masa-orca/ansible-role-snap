@@ -1,0 +1,14 @@
+---
+- name: "Get {{ snapd_conf.snap }} conf"
+  become: yes
+  ansible.builtin.command: "snap get {{ snapd_conf.snap }}"
+  register: get_config
+  changed_when: false
+  ignore_errors: True
+
+- name: "Set {{ snapd_conf.snap }} conf"
+  become: yes
+  ansible.builtin.command: "snap set {{ snapd_conf.snap }} {{ snapd_conf.key }}={{ snapd_conf.value }}"
+  when: |
+    ( get_config | failed )
+    or get_config.stdout != {{ snapd_conf.value }}
