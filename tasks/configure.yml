@@ -6,9 +6,9 @@
   changed_when: false
   ignore_errors: True
 
-- name: "Set {{ snapd_conf.key }} conf"
+- name: "Set {{ snapd_conf.snap }} {{ snapd_conf.key }}"
   become: yes
   ansible.builtin.command: "snap set {{ snapd_conf.snap }} {{ snapd_conf.key }}={{ snapd_conf.value }}"
   when: |
-    ( get_config | failed )
-    or get_config.stdout != {{ snapd_conf.value }}
+    get_config is failed
+    or get_config.stdout != snapd_conf.value
