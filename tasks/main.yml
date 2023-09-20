@@ -5,17 +5,22 @@
     filter:
       - distribution
 
-- name: Install git on Debian
+- name: Install snapd on Debian
   ansible.builtin.include_tasks:
     file: Debian.yml
   when:
     - ansible_facts.distribution == "Debian"
 
-- name: Install git on Ubuntu
+- name: Install snapd on Ubuntu
   ansible.builtin.include_tasks:
     file: Ubuntu.yml
   when:
     - ansible_facts.distribution == "Ubuntu"
+
+- name: Make sure a snapd service unit is running
+  ansible.builtin.systemd:
+    state: started
+    name: snapd
 
 - name: Configure snapd
   ansible.builtin.include_tasks:
