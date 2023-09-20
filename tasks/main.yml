@@ -18,6 +18,7 @@
     - ansible_facts.distribution == "Ubuntu"
 
 - name: Make sure a snapd service unit is running
+  become: yes
   ansible.builtin.systemd:
     state: started
     name: snapd
