@@ -20,9 +20,9 @@ provisioner:
     group_vars:
       all:
         snapd_confs:
-          snap: system
-          key: proxy.http
-          value: hogehoge
+          - snap: system
+            key: proxy.http
+            value: hogehoge
 verifier:
   name: ansible
 
