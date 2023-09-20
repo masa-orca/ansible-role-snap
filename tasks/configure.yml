@@ -1,12 +1,12 @@
 ---
-- name: "Get {{ snapd_conf.snap }} conf"
+- name: "Get {{ snapd_conf.key }} conf"
   become: yes
-  ansible.builtin.command: "snap get {{ snapd_conf.snap }}"
+  ansible.builtin.command: "snap get {{ snapd_conf.key }}"
   register: get_config
   changed_when: false
   ignore_errors: True
 
-- name: "Set {{ snapd_conf.snap }} conf"
+- name: "Set {{ snapd_conf.key }} conf"
   become: yes
   ansible.builtin.command: "snap set {{ snapd_conf.snap }} {{ snapd_conf.key }}={{ snapd_conf.value }}"
   when: |
