@@ -4,8 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: megabytelabs/ubuntu-20.04:latest
-    image: ubuntu:20.04
+  - name: ubuntu-20.04
+    image: megabytelabs/ubuntu-20.04:latest
     privileged: true
     pre_build_image: true
     command: /sbin/init
