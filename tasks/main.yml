@@ -19,8 +19,8 @@
 
 - name: Make sure a snapd service unit is running
   become: yes
-  ansible.builtin.service:
-    state: started
+  ansible.builtin.systemctl:
+    state: restarted
     name: snapd.service
 
 - name: Configure snapd
