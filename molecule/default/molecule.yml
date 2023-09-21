@@ -4,23 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: ubuntu_focal
-    image: ubuntu:focal
-    privileged: true
-    pre_build_image: true
-    command: /sbin/init
-  - name: ubuntu_jammy
-    image: ubuntu:jammy
-    privileged: true
-    pre_build_image: true
-    command: /sbin/init
-  - name: debian_bullseye
-    image: debian:bullseye
-    privileged: true
-    pre_build_image: true
-    command: /sbin/init
-  - name: debian_bookworm
-    image: debian:bookworm
+  - name: megabytelabs/ubuntu-20.04:latest
+    image: ubuntu:20.04
     privileged: true
     pre_build_image: true
     command: /sbin/init
